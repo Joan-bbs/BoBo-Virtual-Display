@@ -8,8 +8,6 @@ Easy Virtual Display is a Windows desktop application for installing and driving
 
 It builds on the early concept of [nomi-san/parsec-vdd](https://github.com/nomi-san/parsec-vdd).
 
-> 📦 Prebuilt installers are available on the [Releases](https://github.com/KtzeAbyss/Easy-Virtual-Display/releases) page.
-
 ## Highlights
 
 - **One-click driver install** — the driver is bundled; install it with a single UAC-elevated click, no separate download.
@@ -108,7 +106,3 @@ npm run tauri:build
 ```
 
 This fetches the driver installer (checked against a pinned SHA-256), publishes the .NET host, and produces an NSIS installer that bundles the renderer, the Rust shell, and the driver.
-
-## Repository
-
-- GitHub: https://github.com/KtzeAbyss/Easy-Virtual-Display
