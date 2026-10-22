@@ -24,5 +24,24 @@ for size, filename in [(32, "32x32.png"), (64, "64x64.png"), (128, "128x128.png"
 im.save(ROOT / "resources" / "icon.png")
 im.save(icon_dir / "icon.png")
 im.save(icon_dir / "icon.ico", sizes=[(16,16),(24,24),(32,32),(48,48),(64,64),(128,128),(256,256)])
-im.save(icon_dir / "icon.icns")
+# Windows tile icon variants
+for size in [30, 44, 71, 89, 107, 142, 150, 284, 310]:
+    filename = f"Square{size}x{size}Logo.png"
+    if (icon_dir / filename).exists():
+        im.resize((size, size), Image.Resampling.LANCZOS).save(icon_dir / filename)
+if (icon_dir / "StoreLogo.png").exists():
+    im.resize((50, 50), Image.Resampling.LANCZOS).save(icon_dir / "StoreLogo.png")
+
+# NSIS wizard images are separate from the executable icon.
+win = ROOT / "src-tauri" / "windows"
+win.mkdir(parents=True, exist_ok=True)
+for filename, width, height, icon_size in [
+    ("header.bmp", 150, 57, 48),
+    ("sidebar.bmp", 164, 314, 136),
+]:
+    bg = Image.new("RGB", (width, height), "#0C1C50")
+    logo = im.resize((icon_size, icon_size), Image.Resampling.LANCZOS)
+    bg.paste(logo, ((width-icon_size)//2, (height-icon_size)//2), logo)
+    bg.save(win / filename, format="BMP")
+
 print("Generated Bobo icon assets")
