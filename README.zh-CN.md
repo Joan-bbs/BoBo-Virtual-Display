@@ -8,8 +8,6 @@ Easy Virtual Display 是一款 Windows 桌面应用，让你通过友好的界�
 
 本项目基于 [nomi-san/parsec-vdd](https://github.com/nomi-san/parsec-vdd) 的早期概念发展而来。
 
-> 📦 预构建的安装包可在 [Releases](https://github.com/KtzeAbyss/Easy-Virtual-Display/releases) 页面下载。
-
 ## 功能亮点
 
 - **一键安装驱动** —— 驱动已随应用内置，UAC 提权后一键安装，无需另行下载。
@@ -108,7 +106,3 @@ npm run tauri:build
 ```
 
 该命令会获取驱动安装包（按固定的 SHA-256 校验）、发布 .NET 宿主，并生成一个 NSIS 安装包，其中打包了渲染层、Rust 外壳与驱动。
-
-## 仓库
-
-- GitHub：https://github.com/KtzeAbyss/Easy-Virtual-Display
